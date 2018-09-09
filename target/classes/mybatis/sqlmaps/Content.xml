@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.faq.dao.ConnectionDao">
+	<select id="selectFaqContent"
+		parameterType="java.util.Map"
+		resultType="com.mycompany.vo.faqContent">
+		SELECT
+			*
+		FROM 
+			faqcontent
+		<where>
+				title like CONCAT('%', #{search_word}, '%')
+				OR
+				content like CONCAT('%', #{search_word}, '%')
+		</where>
+<!-- 					OR content -->
+<!-- 					LIKE #{search_word} -->
+<!-- 					AND deleteYN = 0 -->
+<!-- 					ORDER BY hit DESC  -->
+		ORDER BY hit DESC
+	</select>
+</mapper>

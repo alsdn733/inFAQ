@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.faq.dao.ConnectionDao">
+	<select id="selectConnection"
+			resultType="com.mycompany.vo.connection">
+			SELECT 
+				*
+			FROM connection
+	</select>
+	<select id="selectContent"
+			resultType="com.mycompany.vo.content">
+			SELECT
+				*
+			FROM content			
+	</select>
+</mapper>
