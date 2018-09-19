@@ -61,7 +61,6 @@ public class HomeController {
 			model.addAttribute("search_word", search_word);
 		}
 		model.addAttribute("faqContent", faqContent);
-		
 		return "home";
 //		return "editor";
 	}
