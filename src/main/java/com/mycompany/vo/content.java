@@ -22,5 +22,9 @@ public class content {
 	public void setConnect(int connect) {
 		this.connect = connect;
 	}
+	@Override
+	public String toString() {
+		return "content [no=" + no + ", title=" + title + ", connect=" + connect + "]";
+	}
 	
 }

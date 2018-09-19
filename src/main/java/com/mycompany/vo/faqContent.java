@@ -1,6 +1,5 @@
 package com.mycompany.vo;
 
-import java.util.Date;
 
 public class faqContent {
 	private int no;
@@ -8,6 +7,7 @@ public class faqContent {
 	private String content;
 	private int hit;
 	private int deleteYN;
+	 
 	public int getNo() {
 		return no;
 	}
@@ -37,5 +37,10 @@ public class faqContent {
 	}
 	public void setDeleteYN(int deleteYN) {
 		this.deleteYN = deleteYN;
+	}
+	@Override
+	public String toString() {
+		return "faqContent [no=" + no + ", title=" + title + ", content=" + content + ", hit=" + hit + ", deleteYN="
+				+ deleteYN + "]";
 	}
 }

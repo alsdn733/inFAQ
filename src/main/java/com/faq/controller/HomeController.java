@@ -49,10 +49,17 @@ public class HomeController {
 
 		List<connection> connectionList = connectionService.getConnectionList();
 		model.addAttribute("connectionList", connectionList);
+		System.out.println("connectionList size :"+connectionList.size());
 		
-		System.out.println(search_word);
+		System.out.println("search_word : "+search_word);
 		List<faqContent> faqContent =  contentService.getFaqContentList(search_word);
-		model.addAttribute("search_word", search_word);
+		for(int i=0; i<faqContent.size(); i++){
+			System.out.println("faqContent size:"+faqContent.get(i));
+		}
+		System.out.println(faqContent.size());
+		if(search_word != null){
+			model.addAttribute("search_word", search_word);
+		}
 		model.addAttribute("faqContent", faqContent);
 		
 		return "home";
