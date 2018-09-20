@@ -10,11 +10,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			*
 		FROM 
 			faqcontent
-		<where>
-				title like CONCAT('%', #{search_word}, '%')
-				OR
-				content like CONCAT('%', #{search_word}, '%')
-		</where>
+				
+		
 <!-- 					OR content -->
 <!-- 					LIKE #{search_word} -->
 <!-- 					AND deleteYN = 0 -->

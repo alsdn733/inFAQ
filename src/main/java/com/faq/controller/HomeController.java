@@ -53,9 +53,6 @@ public class HomeController {
 		
 		System.out.println("search_word : "+search_word);
 		List<faqContent> faqContent =  contentService.getFaqContentList(search_word);
-		for(int i=0; i<faqContent.size(); i++){
-			System.out.println("faqContent size:"+faqContent.get(i));
-		}
 		System.out.println(faqContent.size());
 		if(search_word != null){
 			model.addAttribute("search_word", search_word);
