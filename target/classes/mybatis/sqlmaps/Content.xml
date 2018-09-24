@@ -10,12 +10,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			*
 		FROM 
 			faqcontent
-				
-		
 <!-- 					OR content -->
 <!-- 					LIKE #{search_word} -->
 <!-- 					AND deleteYN = 0 -->
 <!-- 					ORDER BY hit DESC  -->
 		ORDER BY hit DESC
 	</select>
+	<update id="updateHit"
+		parameterType="java.util.Map">
+		UPDATE
+			faqContent
+		SET
+			hit = hit + 1
+		WHERE
+			no = #{no}
+	</update>
+	<insert id="insertClientNeed"
+		parameterType="java.util.Map">
+		INSERT INTO
+			client_need(company, board_no, title, update_date) 
+		VALUES
+			(#{company}, #{no}, #{title}, now())
+	</insert>
 </mapper>

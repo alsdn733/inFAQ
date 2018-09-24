@@ -23,4 +23,15 @@ public class ContentServiceImpl implements ContentService{
 		map.put("search_word", search_word);
 		return contentDao.selectFaqContent(map);
 	}
+
+	@Override
+	public int hitUpdate(int no, String company) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("no", no);
+		map.put("company", company);
+		contentDao.hitUpdate(map);
+		List<faqContent> faqContent = contentDao.selectFaqContent(map); // 해당 no의 게시물을 가져온다. 
+		map.put("title", faqContent.get(0).getTitle()); // 게시물의 질문을 가져온다
+		return contentDao.insertClientNeed(map); // 문의 온 회사의 이름, 질문을 입력한다.
+	}
 }

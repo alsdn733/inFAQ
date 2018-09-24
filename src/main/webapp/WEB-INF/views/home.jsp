@@ -12,18 +12,18 @@
     <script>
     	function updateHit(no) {
         var company = prompt("질문 및 요청한 회사를 입력해주세요. \n향후 데이터 통계에 도움이 됩니다 :)","");
-        if(company!=null){
-          $.ajax({
-            url: "hitUpdate.php",
-            type: "get",
-            data: {
-              noParam : no,
-              companyParam : company
-            }
-          }).done(function(data) {
-            location.reload();
-          });
-        }
+	        if(company!=null){
+	          $.ajax({
+	            url: "hitUpdate",
+	            type: "get",
+	            data: {
+	              noParam : no,
+	              companyParam : company
+	            }
+	          }).done(function(data) {
+	            location.reload();
+	          });
+	        }
     	}
     </script>
 
@@ -59,6 +59,8 @@
       				<tr>
       					<td>${ faqContent.title }</td>
       					<td>${ faqContent.content }</td>
+      					<td>${ faqContent.hit }</td>
+      					<td><button type="button" class="btn btn-primary btn-xs" onClick="updateHit(${faqContent.no})">추천</button></td>
       				</tr>
    				</c:forEach>
       		</tbody>

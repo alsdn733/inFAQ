@@ -41,25 +41,19 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, @RequestParam(value="search_word", required = false) String search_word) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		String formattedDate = dateFormat.format(date);
-		model.addAttribute("serverTime", formattedDate );
-
-		List<connection> connectionList = connectionService.getConnectionList();
-		model.addAttribute("connectionList", connectionList);
-		System.out.println("connectionList size :"+connectionList.size());
-		
 		System.out.println("search_word : "+search_word);
 		List<faqContent> faqContent =  contentService.getFaqContentList(search_word);
-		System.out.println(faqContent.size());
 		if(search_word != null){
 			model.addAttribute("search_word", search_word);
 		}
 		model.addAttribute("faqContent", faqContent);
 		return "home";
-//		return "editor";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/hitUpdate", method = RequestMethod.GET)
+	public int hitUpdate(@RequestParam int noParam, @RequestParam String companyParam) {
+		return contentService.hitUpdate(noParam, companyParam);
 	}
 	@RequestMapping(value = "/getTags", method = RequestMethod.GET)
 	public @ResponseBody List<contentPreview> getTags(@RequestParam String tagName) {
