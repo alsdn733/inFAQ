@@ -27,17 +27,17 @@
     	}
     </script>
 
-    <center><a href='admin.php' class="badge badge-secondary">관리자 사이트</a>  <a href='clients.php' class="badge badge-secondary">고객사 검색</a></center>
+    <center><a href="<c:url value="/admin" />" class="badge badge-secondary">관리자 사이트</a>  <a href="<c:url value="/client" />" class="badge badge-secondary">고객사 검색</a></center>
     <section class="jumbotron text-center">
         <div class="container">
           <h1 class="jumbotron-heading">Insight 2.0 FAQ</h1>
           <p>
             <form class="navbar-form pull-left" method="get" action="<c:url value="/"/>"> <!-- action 을 비워놔야 자신을 가리킨다 -->
               <input type="text" name="search_word" class="form-control" placeholder="검색어를 입력 후 enter를 누르세요" autofocus>
-              <c:if test="${search_word ne ''}">
-              	<p> 입력한 검색어: <span id="txtHint">${search_word }</span></p>
+              <c:if test="${search_word != ''}">
+              	<p> 입력한 검색어: <span id="txtHint">${ search_word }</span></p>
+	            <button class="btn btn-info" onclick="window.location.href='/'">검색어 초기화</button>
               </c:if>
-              <button class="btn btn-info" onclick="window.location.href=''">검색어 초기화</button>
               <br/><br><span style=""> <input type="button" class="btn btn-primary" value="글쓰기" onClick="location.href='new.php'"></span>
               <br/>
             </form>
@@ -50,7 +50,7 @@
       		<tr>
       			<th scople="col" width="30%">질문</th>
           		<th scople="col" width="40%">답변</th>
-          		<th scople="col" width="1%">hit</th>
+          		<th scople="col" width="1%">문의 수</th>
           		<th scople="col" width="1%">추천</th>
       		</tr>
       		</thead>
