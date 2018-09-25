@@ -1,16 +1,14 @@
 package com.faq.controller;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,14 +16,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.faq.service.ConnectionService;
 import com.faq.service.ContentService;
-import com.mycompany.vo.connection;
 import com.mycompany.vo.content;
 import com.mycompany.vo.contentPreview;
 import com.mycompany.vo.faqContent;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class HomeController {
 	
@@ -36,19 +30,34 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model, @RequestParam(value="search_word", required = false) String search_word) {
-		System.out.println("search_word : "+search_word);
+	public String home(Model model, 
+			@RequestParam(value="search_word", required = false) String search_word) {
 		List<faqContent> faqContent =  contentService.getFaqContentList(search_word);
-		if(search_word != null){
-			model.addAttribute("search_word", search_word);
-		}
+		if(search_word == null) search_word ="";
+		model.addAttribute("search_word", search_word);
 		model.addAttribute("faqContent", faqContent);
 		return "home";
 	}
+	
+	@RequestMapping(value ="/admin", method = RequestMethod.GET)
+	public String admin(Model model,
+			@RequestParam(value="search_word", required = false) String search_word) {
+		List<faqContent> faqContent =  contentService.getFaqContentList(search_word);
+		if(search_word == null) search_word ="";
+		model.addAttribute("search_word", search_word);
+		model.addAttribute("faqContent", faqContent);
+		return "admin";
+	}
+	
+	@RequestMapping(value ="/edit/{no}", method = RequestMethod.GET)
+	public String editPage(Model model, @PathVariable("no") int no) {
+		List<faqContent> faqContent =  contentService.getFaqContentList(String.valueOf(no));
+		model.addAttribute("faqContent", faqContent);
+		return "edit";
+	}
+	
+	
 	
 	@ResponseBody
 	@RequestMapping(value = "/hitUpdate", method = RequestMethod.GET)
