@@ -8,4 +8,5 @@ public interface ContentDao {
 	public List<faqContent> selectFaqContent(Map<String, Object> map);
 	public int hitUpdate(Map<String, Object> map);
 	public int insertClientNeed(Map<String, Object> map);
+	public int updateContent(Map<String, Object> map);
 }

@@ -33,5 +33,10 @@ public class ContentDaoImpl implements ContentDao{
 	public int insertClientNeed(Map<String, Object> map) {
 		return sqlSession.insert("insertClientNeed", map);
 	}
+
+	@Override
+	public int updateContent(Map<String, Object> map) {
+		return sqlSession.update("updateContent", map);
+	}
 	
 }

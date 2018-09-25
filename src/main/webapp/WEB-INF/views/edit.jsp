@@ -19,15 +19,13 @@
 		</div>
 	</section>
 	<div class="container">
-		<form method="post" action="editContent">
-		<c:forEach var="faqContent" items="${faqContent }" varStatus="status">
-			<input type="hidden" name="no" value=""> 질문
-			<textarea class="form-control" name="title" cols="50" rows="4">${ faqContent.title } </textarea>
-			<br>답변
-			<textarea class="form-control" name="content" cols="50" rows="10">${ faqContent.content }</textarea>
-			<br>
-			<input type="submit" style="float: right;" class="btn btn-primary" value="수정" onClick="alert('수정되었습니다.')">
-		</c:forEach>	
+		<form method="post" action="<c:url value="/editContent/${ faqContent[0].no }"/>">
+				질문
+				<textarea class="form-control" name="title" cols="50" rows="4">${ faqContent[0].title } </textarea>
+				<br>답변
+				<textarea class="form-control" name="content" cols="50" rows="10">${ faqContent[0].content }</textarea>
+				<br>
+				<input type="submit" style="float: right;" class="btn btn-primary" value="수정" onClick="alert('수정되었습니다.')">
 		</form>
 	</div>
 </body>

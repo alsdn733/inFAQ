@@ -25,6 +25,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE
 			no = #{no}
 	</update>
+	<update id="updateContent"
+		parameterType="java.util.Map">
+		UPDATE
+			faqContent
+		SET 
+			title = #{title}, content = #{content}, update_date = now()
+		WHERE 
+			no =#{no}
+	</update>
 	<insert id="insertClientNeed"
 		parameterType="java.util.Map">
 		INSERT INTO
