@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page pageEncoding="utf-8" session="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +19,9 @@
 		</div>
 	</section>
 	<div class="container">
-		<form method="post" action="<c:url value="/editContent/${ faqContent[0].no }"/>">
+		<form method="post" action="<c:url value="/editContent/${faqContent[0].no }"/>">
 				질문
-				<textarea class="form-control" name="title" cols="50" rows="4">${ faqContent[0].title } </textarea>
+				<textarea class="form-control" name="title" cols="50" rows="4">${faqContent[0].title } </textarea>
 				<br>답변
 				<textarea class="form-control" name="content" cols="50" rows="10">${ faqContent[0].content }</textarea>
 				<br>
