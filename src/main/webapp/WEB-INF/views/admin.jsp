@@ -27,7 +27,11 @@
     	}
     </script>
 
-    <center><a href="<c:url value="/admin" />" class="badge badge-secondary">관리자 사이트</a>  <a href="<c:url value="/client" />" class="badge badge-secondary">고객사 검색</a></center>
+    <div align="center">
+    	<a href="<c:url value="/" />" class="badge badge-secondary">일반 사이트</a> 
+    	<a href="<c:url value="/admin" />" class="badge badge-secondary">관리자 사이트</a> 
+     	<a href="<c:url value="/client" />" class="badge badge-secondary">고객사 검색</a>
+    </div>
     <section class="jumbotron text-center">
         <div class="container">
           <h1 class="jumbotron-heading">Insight 2.0 FAQ</h1>
@@ -50,7 +54,7 @@
       		<tr>
       			<th scople="col" width="30%">질문</th>
           		<th scople="col" width="40%">답변</th>
-          		<th scople="col" width="1%">문의 수</th>
+          		<th scople="col" width="8%">문의 수</th>
           		<th scople="col" width="1%">추천</th>
           		<th scople="col" width="1%">수정</th>
           		<th scople="col" width="1%">삭제</th> 
