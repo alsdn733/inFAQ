@@ -53,13 +53,17 @@ public class HomeController {
 	
 	@RequestMapping(value ="/edit/{no}", method = RequestMethod.GET)
 	public String editPage(Model model, @PathVariable("no") int no) {
-		List<faqContent> faqContent =  contentService.getFaqContentList(String.valueOf(no));
+		List<faqContent> faqContent =  contentService.getFaqContentList(String.valueOf(no)); // no 값을 String으로 변환
+		faqContent.get(0).setTitle(faqContent.get(0).getTitle().replace("<br />", "\r\n")); // title의 <br />을 \r\n으로 바꾸어준다.
+		faqContent.get(0).setContent(faqContent.get(0).getContent().replace("<br />", "\r\n")); // content의 <br />을 \r\n으로 바꾸어준다.
 		model.addAttribute("faqContent", faqContent);
 		return "edit";
 	}
 	
 	@RequestMapping(value="/editContent/{no}", method = RequestMethod.POST)
 	public String editPageContent(Model model, @PathVariable("no") int no, @ModelAttribute faqContent faqContent){
+		faqContent.setTitle(faqContent.getTitle().replace("\r\n", "<br />"));
+		faqContent.setContent(faqContent.getContent().replace("\r\n", "<br />"));
 		contentService.contentUpdate(faqContent); // 게시물 수정
 		return "redirect:/admin";
 	}
