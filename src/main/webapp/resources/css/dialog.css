@@ -1,0 +1,83 @@
+#dialogoverlay {
+	display: none;
+	opacity: .8;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: #fff;
+	width: 100%;
+	z-index: 10;
+}
+
+#dialogbox {
+	display: none;
+	position: fixed;
+	background: #DEE3EB;
+	width: 400px;
+	height: 201px;
+	z-index: 10;
+}
+
+#dialogbox>div {
+	background: #DEE3EB;
+	margin: 1px;
+}
+
+#dialogbox>div>#dialogboxhead {
+	background: #F2F4F7;
+	line-height: 40px;
+	font-weight: bold;
+	font-size: 16px;
+	vertical-align: middle;
+	color: #007BFF;
+	height: 40px;
+	text-align: center;
+}
+
+#dialogbox>div>#dialogboxbody {
+	background: #F2F4F7;
+	padding: 20px;
+	font-size: 10px;
+	color: #000;
+	height: 110px;
+}
+
+#dialogbox>div>#dialogboxfoot {
+	background: #F2F4F7;
+	padding: 10px; text-align : right;
+	height: 49px;
+	text-align: right;
+}
+
+.dialog_ok {
+	width: 54px;
+	height: 29px;
+	margin: 0;
+	border: 0;
+	vertical-align: top;
+	background: #007BFF;
+	color: white;
+	font-size: 16px;
+	border-radius: 1px;
+	cursor: pointer;
+}
+
+.dialog_cancel {
+	width: 54px;
+	height: 29px;
+	margin: 0;
+	border: 0;
+	vertical-align: top;
+	background: #fff;
+	color: #000;
+	font-size: 16px;
+	border-radius: 1px;
+	cursor: pointer;
+	border: 1px solid #DEE3EB;
+}
+
+.prompt_style {
+	width: 358px;
+	height: 25px;
+	font-size: 15px;	
+}
