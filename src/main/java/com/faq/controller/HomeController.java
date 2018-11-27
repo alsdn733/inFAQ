@@ -51,6 +51,12 @@ public class HomeController {
 		return "admin";
 	}
 	
+	@RequestMapping(value ="/newBoard", method = RequestMethod.GET)
+	public String newBoard (Model model) {
+		return "newBoard";
+	}
+	
+	
 	@RequestMapping(value ="/edit/{no}", method = RequestMethod.GET)
 	public String editPage(Model model, @PathVariable("no") int no) {
 		List<faqContent> faqContent =  contentService.getFaqContentList(String.valueOf(no)); // no 값을 String으로 변환

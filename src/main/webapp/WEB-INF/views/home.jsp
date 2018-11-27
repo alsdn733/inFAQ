@@ -78,25 +78,6 @@
 			<div id="dialogboxfoot"></div>
 		</div>
 	</div>
-	<!--  
-    <script>
-    	function updateHit(no) {
-        var company = prompt("질문 및 요청한 회사를 입력해주세요. \n향후 데이터 통계에 도움이 됩니다 :)","");
-	        if(company!=null){
-	          $.ajax({
-	            url: "hitUpdate",
-	            type: "get",
-	            data: {
-	              noParam : no,
-	              companyParam : company
-	            }
-	          }).done(function(data) {
-	            location.reload();
-	          });
-	        }
-    	}
-    </script>
--->
 	<div align="center">
 		<a href="<c:url value="/" />" class="badge badge-secondary">일반 사이트</a>
 		<a href="<c:url value="/admin" />" class="badge badge-secondary">관리자
@@ -108,7 +89,7 @@
 			<h1 class="jumbotron-heading">Insight 2.0 FAQ</h1>
 			<p>
 			<form class="navbar-form pull-left" method="get"
-				action="<c:url value="/"/>">
+				action="<c:url value="/newBoard"/>">
 				<!-- action 을 비워놔야 자신을 가리킨다 -->
 				<input type="text" name="search_word" class="form-control"
 					placeholder="검색어를 입력 후 enter를 누르세요" autofocus>
@@ -121,7 +102,8 @@
 				</c:if>
 				<br /> <br> <span style=""> <input type="button"
 					class="btn btn-primary" value="글쓰기"
-					onClick="location.href='new.php'"></span> <br />
+					onClick="location.href='<c:url value="/newBoard"/> '">
+					</span> <br />					
 			</form>
 			</p>
 		</div>
@@ -143,7 +125,6 @@
 						<td>${ faqContent.title }</td>
 						<td>${ faqContent.content }</td>
 						<td>${ faqContent.hit }</td>
-						<!--  <td><button type="button" class="btn btn-primary btn-xs" onClick="updateHit(${faqContent.no})">추천</button></td> -->
 						<td><button type="button" class="btn btn-primary btn-xs"
 								onClick="Prompt.render('질문 및 요청한 회사를 입력해주세요. \n향후 데이터 통계에 도움이 됩니다 :)',${faqContent.no})">추천</button></td>
 					</tr>
